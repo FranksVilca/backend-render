@@ -1,0 +1,34 @@
+services:
+  # PostgreSQL Database
+  - type: pserv
+    name: notes-db
+    env: docker
+    plan: free
+    databaseName: notesdb
+    databaseUser: notesuser
+
+  # Spring Boot Backend API
+  - type: web
+    name: notes-backend
+    env: java
+    plan: free
+    buildCommand: ./render-build.sh
+    startCommand: java -Dserver.port=$PORT -Dspring.profiles.active=prod -jar notes-backend/target/*.jar
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: DATABASE_URL
+        fromDatabase:
+          name: notes-db
+          property: connectionString
+      - key: H2_CONSOLE_ENABLED
+        value: false
+      - key: JPA_SHOW_SQL
+        value: false
+      - key: LOG_LEVEL_APP
+        value: INFO
+      - key: LOG_LEVEL_WEB
+        value: WARN

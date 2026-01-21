@@ -1,0 +1,12 @@
+notes-backend/target
+notes-backend/.mvn
+notes-backend/mvnw
+notes-backend/mvnw.cmd
+notes-backend/.settings
+notes-backend/.classpath
+notes-backend/.project
+notes-backend/.vscode
+notes-backend/.idea
+notes-backend/*.iml
+data
+*.log
