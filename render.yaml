@@ -24,6 +24,10 @@ services:
         fromDatabase:
           name: notes-db
           property: connectionString
+      - key: JDBC_DATABASE_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://frontend-vercel-lemon-rho.vercel.app
       - key: H2_CONSOLE_ENABLED
         value: false
       - key: JPA_SHOW_SQL
