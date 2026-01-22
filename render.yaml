@@ -10,7 +10,7 @@ services:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
       - key: ALLOWED_ORIGINS
-        value: https://frontend-vercel-lemon-rho.vercel.app
+        value: https://frontend-vercel-5dzibw1q3-franksvilcas-projects.vercel.app,https://frontend-vercel-lemon-rho.vercel.app,http://localhost:3000
       - key: H2_CONSOLE_ENABLED
         value: false
       - key: JPA_SHOW_SQL
